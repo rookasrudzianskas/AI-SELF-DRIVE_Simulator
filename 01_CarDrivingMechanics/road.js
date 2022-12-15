@@ -16,6 +16,10 @@ class Road {
         ctx.lineWidth = 5;
         ctx.strokeStyle = "white";
 
+        for(let i = 0; i < this.laneCount; i++) {
+            const x = lerp(this.left, this.right, i / this.laneCount);
+        }
+
         ctx.beginPath();
         ctx.moveTo(this.left, this.top);
         ctx.lineTo(this.left, this.bottom);
@@ -26,4 +30,9 @@ class Road {
         ctx.lineTo(this.right, this.bottom);
         ctx.stroke();
     }
+}
+
+function lerp(A, B, t) {
+    // the value of a, difference between b and a, divided by the difference of t.
+    return A + (B - A) * t;
 }
