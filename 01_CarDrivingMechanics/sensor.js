@@ -1,8 +1,8 @@
 class Sensor {
     constructor(car) {
         this.car = car;
-        this.rayCount = 3;
-        this.rayLength = 100;
+        this.rayCount = 30;
+        this.rayLength = 150;
         this.raySpread = Math.PI / 4;
 
         this.rays = [];
@@ -11,7 +11,7 @@ class Sensor {
     update() {
         this.rays = [];
         for(let i = 0; i < this.rayCount; i++) {
-            const rayAngle = lerp(this.raySpread / 2, -this.raySpread / 2, i / (this.rayCount - 1));
+            const rayAngle = lerp(this.raySpread / 2, -this.raySpread / 2, i / (this.rayCount - 1)) + this.car.angle;
 
             const start = { x: this.car.x, y: this.car.y };
             const end = {
@@ -31,7 +31,12 @@ class Sensor {
             ctx.moveTo(
                 this.rays[i][0].x,
                 this.rays[i][0].y
-            )
+            );
+            ctx.lineTo(
+                this.rays[i][1].x,
+                this.rays[i][1].y
+            );
+            ctx.stroke();
         }
     }
 }
