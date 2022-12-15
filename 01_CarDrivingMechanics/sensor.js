@@ -6,10 +6,21 @@ class Sensor {
         this.raySpread = Math.PI / 4;
 
         this.rays = [];
+        this.readings = [];
     }
 
-    update() {
+    update(roadBorders) {
         this.#castRays();
+        this.readings = [];
+        for (let i = 0; i < this.rays.length; i++) {
+            this.readings.push(
+                this.#getReadings(this.rays[i], roadBorders);
+            )
+        }
+    }
+
+    #getReadings(ray, roadBorders) {
+
     }
 
     #castRays() {
