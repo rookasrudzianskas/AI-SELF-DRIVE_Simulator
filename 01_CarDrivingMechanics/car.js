@@ -100,6 +100,11 @@ class Car{
     }
 
     draw(ctx){
+        if(this.damaged) {
+            ctx.fillStyle = "gray";
+        } else {
+            ctx.fillStyle = "black";
+        }
         ctx.beginPath();
         ctx.moveTo(this.polygon[0].x,this.polygon[0].y);
         for(let i = 1; i < this.polygon.length; i++){
