@@ -6,9 +6,9 @@ body {
 }
 
 #carCanvas {
-    background: black;
+    background: lightgray;
 }
 
 #networkCanvas {
-    background: lightgray;
+    background: black;
 }
