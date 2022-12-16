@@ -18,14 +18,14 @@ class Car{
         this.controls=new Controls(controlType);
     }
 
-    update(roadBorders,traffic){
+    update(roadBorders, traffic){
         if(!this.damaged){
             this.#move();
             this.polygon=this.#createPolygon();
-            this.damaged=this.#assessDamage(roadBorders,traffic);
+            this.damaged=this.#assessDamage(roadBorders, traffic);
         }
         if(this.sensor){
-            this.sensor.update(roadBorders,traffic);
+            this.sensor.update(roadBorders, traffic);
         }
     }
 
