@@ -54,9 +54,11 @@ function animate(time){
     for(let i=0;i<traffic.length;i++){
         traffic[i].update(road.borders,[]);
     }
+
     for(let i=0;i<cars.length;i++){
         cars[i].update(road.borders,traffic);
     }
+
     bestCar=cars.find(
         c=>c.y==Math.min(
             ...cars.map(c=>c.y)
